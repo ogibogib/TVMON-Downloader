@@ -1416,10 +1416,12 @@ class GuiIntegrationTests(unittest.TestCase):
                     storage = Path(folder_name)
                     folder = storage / "videos"
                     app = downloader.DownloaderApp(root, state_path=storage / "state" / "jobs.json")
+                    app.auto_domain.set(False)
+                    app.auto_text_domain.set(False)
                     app.url.set(PAGE_URL)
                     app.folder.set(str(folder))
                     app.start()
-                    self.assertTrue(app.start_button.instate(["disabled"]))
+                    self.assertEqual(app.job_menu.entrycget(2, "state"), "disabled")
                     root.after(0, lambda: responsive.append(True))
                     deadline = time.monotonic() + 5
                     while time.monotonic() < deadline:
@@ -1457,12 +1459,12 @@ class GuiIntegrationTests(unittest.TestCase):
                     self.assertFalse(receipt.exists())
                     self.assertEqual(app.percent.get(), "100%")
                     self.assertEqual(app.remaining.get(), "완료")
-                    self.assertIn("다운로드 완료", app.status.get())
+                    self.assertEqual(app.selection_status.get(), "완료")
                     for widget in (app.url_entry, app.folder_entry, app.paste_button,
                                    app.browse_button, app.add_button):
                         self.assertFalse(widget.instate(["disabled"]))
-                    self.assertTrue(app.start_button.instate(["disabled"]))
-                    self.assertTrue(app.cancel_button.instate(["disabled"]))
+                    self.assertEqual(app.job_menu.entrycget(2, "state"), "disabled")
+                    self.assertEqual(app.job_menu.entrycget(3, "state"), "disabled")
                 finally:
                     release.set()
                     if app and app.worker:
