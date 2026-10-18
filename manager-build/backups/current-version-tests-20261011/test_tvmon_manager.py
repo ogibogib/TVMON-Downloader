@@ -4042,10 +4042,15 @@ class ManagerTests(unittest.TestCase):
 
     def test_p2p_transfer_summary_is_visible_and_cleared_by_next_video_info(self):
         app = self.create_app()
+        job = app._new_job(PAGE_URL, str(self.videos), 'a' * 32)
+        job.update(status='downloading', run_id=1, total=3, done=1)
+        app.jobs.append(job)
+        app.active_id = job['id']
+        app.cancel_event = threading.Event()
+        app._refresh_table()
+        app.tree.selection_set(job['id'])
         app.show_details()
-        entered = self.hold_after_first_cached_segment()
-        job = self.add(app)
-        self.pump(app, lambda: entered.is_set() and job['done'] == 1)
+        app.root.update_idletasks()
         app.events.put((job['id'], job['run_id'], 'transfer',
                         {'speed': 2000000, 'p2p_bytes': 4*1024*1024, 'p2p_peers': 3}))
         self.pump(app, app.events.empty)
@@ -4060,6 +4065,9 @@ class ManagerTests(unittest.TestCase):
         self.assertEqual(app.server_info_button['text'], '서버 1개')
         job['p2p_peers'] = 3
         app.pause()
+        self.assertTrue(app.cancel_event.is_set())
+        app.events.put((job['id'], job['run_id'], 'paused', None))
+        app.events.put((job['id'], job['run_id'], 'idle', None))
         self.pump(app, lambda: app.active_id is None)
         self.assertEqual(job['p2p_peers'], 0)
 
