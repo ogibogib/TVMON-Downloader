@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission android:name="com.tvmon.android.INTERNAL" android:protectionLevel="signature" />
+    <uses-permission android:name="com.tvmon.android.INTERNAL" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RUN_USER_INITIATED_JOBS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <application android:label="TVMON" android:icon="@drawable/ic_download"
+        android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true"
+        android:usesCleartextTraffic="false">
+        <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".TransferJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+        <service android:name=".TransferService" android:foregroundServiceType="dataSync" android:exported="false" />
+        <receiver android:name=".TransferScheduler$PauseReceiver" android:exported="false" />
+    </application>
+</manifest>

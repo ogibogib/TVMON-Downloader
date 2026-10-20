@@ -3,6 +3,7 @@
 !/.gitignore
 !/README.md
 !/build-manager.ps1
+!/android/
 !/source/
 !/manager/
 !/manager-build/
@@ -28,3 +29,11 @@
 !/manager-build/backups/current-version-tests-20261011/
 /manager-build/backups/current-version-tests-20261011/*
 !/manager-build/backups/current-version-tests-20261011/test_tvmon_*.py
+
+/android/.gradle/
+/android/local.properties
+/android/build/
+/android/app/build/
+/android/app/.cxx/
+/android/artifacts/
+/android/emulator*.log
