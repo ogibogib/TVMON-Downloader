@@ -16,6 +16,6 @@ if ($Check) { $apkTasks += @(':app:lintDebug', ':app:assembleDebugAndroidTest') 
 if ($LASTEXITCODE -ne 0) { throw "Android build failed ($LASTEXITCODE)." }
 $apkOutput = Join-Path $PSScriptRoot 'artifacts'
 New-Item -ItemType Directory -Path $apkOutput -Force | Out-Null
-$apkDestination = Join-Path $apkOutput 'TVMON-Android-v0.1.10.apk'
+$apkDestination = Join-Path $apkOutput 'TVMON-Android-v1.0.0.apk'
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'app/build/outputs/apk/debug/app-debug.apk') -Destination $apkDestination
 Write-Output "APK: $apkDestination"

@@ -14,9 +14,9 @@ Windows 10/11 64비트를 대상으로 합니다. 배포본은 Python 설치 없
 
 ## Android 영상 전용 버전
 
-[Android APK 다운로드](https://github.com/ogibogib/TVMON-Downloader/releases/tag/android-v0.1.10) · [Android 소스 ZIP](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v0.1.10/TVMON-Android-v0.1.10-source.zip)
+[Android APK 다운로드](https://github.com/ogibogib/TVMON-Downloader/releases/tag/android-v1.0.0) · [Android 소스 ZIP](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v1.0.0/TVMON-Android-v1.0.0-source.zip)
 
-Android 10 이상용 APK는 별도 [android 프로젝트](android/README.md)에서 빌드합니다. 영상 검색·회차 선택·HTTP 다운로드·대기열·이어받기를 지원하며 뉴토끼 소설과 P2P는 제외합니다. 저장소 루트의 PowerShell에서 `.\android\build.ps1 -Check`를 실행하면 `android/artifacts/TVMON-Android-v0.1.10.apk`가 생성됩니다.
+Android 10 이상용 APK는 별도 [android 프로젝트](android/README.md)에서 빌드합니다. 영상 검색·회차 선택·HTTP 다운로드·대기열·이어받기를 지원하며 뉴토끼 소설과 P2P는 제외합니다. 저장소 루트의 PowerShell에서 `.\android\build.ps1 -Check`를 실행하면 `android/artifacts/TVMON-Android-v1.0.0.apk`가 생성됩니다.
 
 ## 주요 기능
 

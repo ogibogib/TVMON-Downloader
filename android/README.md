@@ -4,12 +4,12 @@ TVMON/TVWIKI 영상 전용 Android 앱입니다. 영상 검색, 회차 선택, H
 
 ## 다운로드
 
-- [Android v0.1.10 릴리스](https://github.com/ogibogib/TVMON-Downloader/releases/tag/android-v0.1.10)
-- [APK 다운로드](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v0.1.10/TVMON-Android-v0.1.10.apk)
-- [Android 소스 ZIP](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v0.1.10/TVMON-Android-v0.1.10-source.zip)
-- [SHA-256 체크섬](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v0.1.10/SHA256SUMS.txt)
+- [Android v1.0.0 릴리스](https://github.com/ogibogib/TVMON-Downloader/releases/tag/android-v1.0.0)
+- [APK 다운로드](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v1.0.0/TVMON-Android-v1.0.0.apk)
+- [Android 소스 ZIP](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v1.0.0/TVMON-Android-v1.0.0-source.zip)
+- [SHA-256 체크섬](https://github.com/ogibogib/TVMON-Downloader/releases/download/android-v1.0.0/SHA256SUMS.txt)
 
-Android 10(API 29) 이상의 ARM64 휴대폰과 x86_64 에뮬레이터를 지원합니다. 32비트 Android 기기는 지원하지 않습니다. APK는 개발용 키로 서명한 테스트 배포본이며 Google Play 배포판은 아닙니다. 같은 앱의 업데이트 설치는 기존 대기열·설정·저장 영상을 유지합니다.
+Android 10(API 29) 이상의 ARM64 휴대폰과 x86_64 에뮬레이터를 지원합니다. 32비트 Android 기기는 지원하지 않습니다. APK는 개발용 키로 서명한 GitHub 배포본이며 Google Play 배포판은 아닙니다. 같은 앱의 업데이트 설치는 기존 대기열·설정·저장 영상을 유지합니다.
 
 ## 사용 방법
 
@@ -23,7 +23,7 @@ Android 10(API 29) 이상의 ARM64 휴대폰과 x86_64 에뮬레이터를 지원
 
 앱 데이터 삭제 또는 앱 제거 시 내부 대기열·미완료 조각은 삭제됩니다. APK 업데이트에는 앱 데이터 삭제가 필요하지 않습니다.
 
-## v0.1.10의 현재 화면
+## v1.0.0의 현재 화면
 
 - 개별 제어 버튼은 모든 카드의 오른쪽 상단에 같은 크기로 표시합니다.
 - 대기 카드는 제목·대기 중·시작만 표시하며 빈 진행률 바와 0.0 MB는 숨깁니다.
@@ -47,7 +47,7 @@ Windows PowerShell과 다음 도구가 필요합니다. Android Studio에 포함
 .\android\build.ps1 -Check
 ```
 
-결과 APK는 `android/artifacts/TVMON-Android-v0.1.10.apk`에 생성됩니다. `-Check`는 APK, Android Lint와 계측 테스트 APK를 빌드합니다. Android Studio에서는 `android` 폴더를 프로젝트로 엽니다.
+결과 APK는 `android/artifacts/TVMON-Android-v1.0.0.apk`에 생성됩니다. `-Check`는 APK, Android Lint와 계측 테스트 APK를 빌드합니다. Android Studio에서는 `android` 폴더를 프로젝트로 엽니다.
 
 빌드 스크립트는 `native-deps.ps1`로 공식 libcurl-impersonate 2.2.2 Android 라이브러리를 내려받아 고정 SHA-256과 대조합니다. 캐시는 `android/build/native-deps`에 저장되며 라이선스 고지는 APK의 `assets/native-licenses`에 포함합니다. Android Studio에서 직접 빌드하기 전에도 해당 스크립트를 실행해야 합니다. JNI 라이브러리는 16KB 페이지 크기를 지원합니다.
 
@@ -55,7 +55,7 @@ SDK/JDK 자동 검색이 맞지 않으면 `ANDROID_HOME`과 `JAVA_HOME`을 지�
 
 ## 검증
 
-- APK 빌드·Lint·v2 서명 검증 통과. 최신 APK는 연결된 Samsung SM-S918N(Android 16)에 설치하고 설정·대기열·저장 파일 보존을 확인했습니다.
+- v1.0.0 APK 빌드·Lint·v2 서명 검증 통과. 버전 번호 변경 전 기능 검증 빌드는 연결된 Samsung SM-S918N(Android 16)에 설치하고 설정·대기열·저장 파일 보존을 확인했습니다.
 - 대기열 카드 개편 시 상태별 27개, 320dp·글꼴 150%의 동일 27개, 실제 다운로드 제어 12개, 기존 품질 41개·삭제 20개·보관함 32개를 통과했습니다(반복 포함 159개).
 - 마지막 한 줄 표시·13sp·문구/글자 폭 조정 후 대기열 27개와 320dp·글꼴 150%의 동일 27개를 다시 통과했습니다. 기존 화면 설정은 복원했습니다.
 - 삭제 검사는 테스트가 만든 에뮬레이터 파일만 사용했습니다. 사용자의 휴대폰 파일은 테스트로 삭제하지 않았습니다.
@@ -64,7 +64,7 @@ SDK/JDK 자동 검색이 맞지 않으면 `ANDROID_HOME`과 `JAVA_HOME`을 지�
 계측 검사는 비어 있는 테스트 전용 에뮬레이터에서 실행하세요. 예를 들어 SDK Platform Tools가 PATH에 있다면 다음과 같이 실행합니다.
 
 ```powershell
-adb -s emulator-5554 install -r android/artifacts/TVMON-Android-v0.1.10.apk
+adb -s emulator-5554 install -r android/artifacts/TVMON-Android-v1.0.0.apk
 adb -s emulator-5554 install -r android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
 adb -s emulator-5554 shell am instrument -w -e queueControls true com.tvmon.android.test/com.tvmon.android.AndroidChecks
 ```
