@@ -18,6 +18,8 @@ Windows 10/11 64비트를 대상으로 합니다. 배포본은 Python 설치 없
 
 Android 10 이상용 APK는 별도 [android 프로젝트](android/README.md)에서 빌드합니다. 영상 검색·회차 선택·HTTP 다운로드·대기열·이어받기를 지원하며 뉴토끼 소설과 P2P는 제외합니다. 저장소 루트의 PowerShell에서 `.\android\build.ps1 -Check`를 실행하면 `android/artifacts/TVMON-Android-v1.0.0.apk`가 생성됩니다.
 
+Android에서 다운로드한 `.ts` 영상 재생에는 **VLC for Android**를 권장합니다. [Google Play에서 VLC 설치](https://play.google.com/store/apps/details?id=org.videolan.vlc)
+
 ## 주요 기능
 
 - 영상·소설 작품 검색, 회차 선택, 대기열 일괄 추가
